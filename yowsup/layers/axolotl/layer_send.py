@@ -225,7 +225,7 @@ class AxolotlSendLayer(AxolotlBaseLayer):
 
     def serializeTextToProtobuf(self, node, message = None):
         m = message or Message()
-        m.conversation = node.getChild("body").getData()
+        m.conversation = str.encode(node.getChild("body").getData())
         return m
 
     def serializeMediaToProtobuf(self, mediaNode, message = None):
